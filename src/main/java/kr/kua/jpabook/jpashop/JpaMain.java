@@ -2,6 +2,7 @@ package kr.kua.jpabook.jpashop;
 
 import kr.kua.jpabook.jpashop.domain.Member;
 import kr.kua.jpabook.jpashop.domain.Order;
+import kr.kua.jpabook.jpashop.domain.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,12 +19,8 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Order order = em.find(Order.class, 1L);
-            Long memberId = order.getMemberId();
-
-            Member member = em.find(Member.class, memberId);
-
-            Member findMember = order.getMember();
+            Order order = new Order();
+            order.addOrderItem(new OrderItem());
 
             tx.commit();
         }catch(Exception e) {
