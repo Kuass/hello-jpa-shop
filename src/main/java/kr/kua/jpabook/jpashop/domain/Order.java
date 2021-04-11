@@ -13,11 +13,6 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long id;
 
-    private LocalDateTime orderDate;
-
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
-
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
@@ -33,6 +28,11 @@ public class Order {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
+
+    private LocalDateTime orderDate;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
     public Member getMember() {
         return member;

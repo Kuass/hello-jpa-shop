@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Delivery {
 
     @Id @GeneratedValue
+//    @Column(name = "DELIVERY_ID")
     private Long id;
 
     private String city;
@@ -13,7 +14,7 @@ public class Delivery {
     private String zipcode;
     private DeliveryStatus status;
 
-    @OneToOne
-    @JoinColumn(name = "delivery")
-    private Order order;
+//    @OneToOne
+//    @JoinColumn(name = "delivery")
+//    private Order order;
 }
